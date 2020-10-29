@@ -23,9 +23,9 @@ void check_order_t::node(const osmium::Node &node)
         return;
     }
 
-    if (m_max_way_id > std::numeric_limits<osmid_t>::min()) {
-        warning("Found a node after a way", node.id());
-    }
+    //if (m_max_way_id > std::numeric_limits<osmid_t>::min()) {
+    //    warning("Found a node after a way", node.id());
+    //}
     if (m_max_relation_id > std::numeric_limits<osmid_t>::min()) {
         warning("Found a node after a relation", node.id());
     }
@@ -35,9 +35,9 @@ void check_order_t::node(const osmium::Node &node)
                 "non-simplified change file?",
                 node.id());
     }
-    if (node.id() < m_max_node_id) {
-        warning("Node IDs out of order", node.id());
-    }
+    //if (node.id() < m_max_node_id) {
+    //    warning("Node IDs out of order", node.id());
+    //}
     m_max_node_id = node.id();
 }
 

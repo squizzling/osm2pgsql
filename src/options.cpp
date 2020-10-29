@@ -66,6 +66,7 @@ const struct option long_options[] = {
     {"prefix", required_argument, nullptr, 'p'},
     {"proj", required_argument, nullptr, 'E'},
     {"reproject-area", no_argument, nullptr, 213},
+    {"relation-index", required_argument, nullptr, 215},
     {"slim", no_argument, nullptr, 's'},
     {"style", required_argument, nullptr, 'S'},
     {"tablespace-index", required_argument, nullptr, 'i'},
@@ -530,6 +531,9 @@ options_t::options_t(int argc, char *argv[]) : options_t()
             break;
         case 213:
             reproject_area = true;
+            break;
+        case 215:
+            relation_index = optarg;
             break;
         case 'V':
             fmt::print(stderr, "Compiled using the following library versions:\n");

@@ -26,6 +26,7 @@
 #include "format.hpp"
 #include "middle-pgsql.hpp"
 #include "middle-ram.hpp"
+#include "middle-rewritten.hpp"
 #include "options.hpp"
 #include "osmdata.hpp"
 #include "output.hpp"
@@ -40,6 +41,10 @@
 
 static std::shared_ptr<middle_t> create_middle(options_t const &options)
 {
+    if (options.relation_index.size()) {
+        return std::make_shared<middle_rewritten_t>(&options);
+    }
+
     if (options.slim) {
         return std::make_shared<middle_pgsql_t>(&options);
     }

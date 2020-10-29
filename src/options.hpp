@@ -128,6 +128,8 @@ public:
     osmium::Box bbox;
     bool extra_attributes = false;
 
+    std::string relation_index;
+
     std::vector<std::string> input_files;
 
 private:
